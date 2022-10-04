@@ -7,16 +7,13 @@ class linearSortedArray{
     }
     public void orderedInsert(int x){
         if (count < arr.length){
-            int position = 0;
-            for (int i = 0; i < count; i++){
-                if(arr[i] > x){
-                    position = i;
-                }
+            int insertionPos = 0;
+            while(insertionPos < count && arr[insertionPos] < x){
+                insertionPos++;
             }
-            for (int i =count; i>position ; i++) {
-                arr[i] = arr[i - 1];
-            }
-            arr[position] = x;
+            for(int k = count; k > insertionPos; k--)
+                arr[k] = arr[k-1];
+            arr[insertionPos] = x;
             count++;
         }
         else{
@@ -52,6 +49,11 @@ class linearSortedArray{
         }
         return -1;
     }
+    public int binarySearchrecrec(int y){
+        int start = 0;
+        int end = arr.length;
+        return binarySearchrec(y, start, end);
+    }
     public int binarySearchrec(int y, int start, int end){
         int mid = end + ((start - end)/2);
         if(end < start){
@@ -73,8 +75,9 @@ class linearSortedArray{
     }
     public void print(){
         for (int i= 0; i<count; i++){
-            System.out.print(arr[i]);
+            System.out.print(arr[i] + " ");
         }
+        System.out.println();
     }
 }
 
@@ -86,5 +89,8 @@ public class e1_3 {
         j.orderedInsert(20);
         j.orderedInsert(40);
         j.print();
+        j.delete(40);
+        j.print();
+        System.out.println(j.binarySearchrecrec(20));
     }
 }
