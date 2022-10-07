@@ -65,12 +65,11 @@ class linearSortedArray{
             }
             if (y < arr[mid]){
                 end = mid - 1;
-                return binarySearchrec(y, start, end);
             }
             else {
                 start = mid + 1;
-                return binarySearchrec(y, start, end);
             }
+            return binarySearchrec(y, start, end);
         }
     }
     public void print(){
