@@ -28,9 +28,9 @@ class Stack {
     }
 
     public int Search(int n){
-        for (int i=0; i<x.length;i++){
+        for (int i=top; i>=0;i--){
             if (n == x[i]){
-                return i;
+                return (top - i);
             }
         }
         return -1;
@@ -39,24 +39,27 @@ class Stack {
 
 
 public class e3_1 {
-    public int Search(int n){
-        Stack x = new Stack(6);
-        int z;
+    public int Search(Stack x, int n){
         Stack y = new Stack(x.Size());
+        int z = 0;
+        boolean found = false;
         while (!x.isEmpty()){
             if (n != x.top()){
                 y.push(x.pop());
+                z++;
             }
             else {
-                z = x.Size() + 1;
-                while (!y.isEmpty()){
-                    x.push(y.pop());
-                }
+                found = true;
             }
         }
         while (!y.isEmpty()){
             x.push(y.pop());
         }
-        return -1;
+        if (found){
+            return z;
+        }
+        else {
+            return -1;
+        }
     }
 }
