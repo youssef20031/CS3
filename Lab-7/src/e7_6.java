@@ -12,6 +12,7 @@ public class e7_6 {
         }
         for (int i = 0; i<Counter/2 + Counter%2; i++){
             a.insertLast(x.removeFirst());
+            Counter--;
         }
         for (int i = 0; i<Counter/2 + Counter%2; i++){
             a.insertFirst(x.removeLast());
@@ -35,7 +36,6 @@ public class e7_6 {
         a.insertLast(g);
         a.insertLast(h);
         //LinkList i = cut(a);
-        a.cutList();
-        System.out.println(a);
+        System.out.println(cut(a));
     }
 }

@@ -1,4 +1,4 @@
-public class e7_8 {
+public class e7_5 {
     static LinkList alternatingSplit(LinkList x){
         LinkList a = new LinkList();
         LinkList b = new LinkList();
@@ -17,7 +17,7 @@ public class e7_8 {
                 i++;
             }
             else {
-                b.insertLast(x.removeFirst());
+                a.insertLast(x.removeLast());
                 i++;
             }
         }
@@ -33,15 +33,15 @@ public class e7_8 {
         Link d = new Link(3);
         Link e = new Link(4);
         Link f = new Link(5);
-        //Link g = new Link(6);
-        //Link h = new Link(7);
+        Link g = new Link(6);
+        Link h = new Link(7);
         a.insertLast(b);
         a.insertLast(c);
         a.insertLast(d);
         a.insertLast(e);
         a.insertLast(f);
-        //a.insertLast(g);
-        //a.insertLast(h);
+        a.insertLast(g);
+        a.insertLast(h);
         //LinkList i = cut(a);
         System.out.println(alternatingSplit(a));
     }
