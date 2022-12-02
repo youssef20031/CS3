@@ -2,11 +2,6 @@ public class e7_8 {
     static LinkList alternatingSplit(LinkList x){
         LinkList a = new LinkList();
         LinkList b = new LinkList();
-        int Counter = 0;
-        while (!x.isEmpty()){
-            a.insertLast(x.removeFirst());
-            Counter++;
-        }
         while (!a.isEmpty()){
             x.insertLast(a.removeFirst());
         }
@@ -14,12 +9,11 @@ public class e7_8 {
         while (!x.isEmpty()){
             if(i%2 == 0) {
                 a.insertLast(x.removeFirst());
-                i++;
             }
             else {
                 b.insertLast(x.removeFirst());
-                i++;
             }
+            i++;
         }
         while (!b.isEmpty()){
             a.insertLast(b.removeFirst());
