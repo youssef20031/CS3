@@ -105,7 +105,32 @@ class DoublyLinkedList
 		}
 		return false;
 	}
-
+	public boolean contains(Object o){
+		Link current = first;
+		while (current != last){
+			if (o.equals(current.data)){
+				return true;
+			}
+			current = current.next;
+		}
+		return false;
+	}
+	public boolean containsrec(Object o){
+		return containsrecrec(o, first);
+	}
+	public boolean containsrecrec(Object o , Link current){
+		if (current == last){
+			return o.equals(current.data);
+		}
+		else{
+				if (o.equals(current.data)){
+					return true;
+				}
+				else {
+					return containsrecrec(o, current.next);
+				}
+		}
+	}
 	
 	
 }

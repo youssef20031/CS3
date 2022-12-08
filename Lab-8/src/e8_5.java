@@ -14,17 +14,17 @@ public class e8_5 {
         b.insertLast(3);
         b.insertLast(4);
         b.insertLast(5);
-        QueueLinkedList c = new QueueLinkedList();
-        c.insert(1);
-        c.insert(2);
-        c.insert(3);
-        c.insert(4);
-        c.insert(5);
+        DoublyLinkedList c = new DoublyLinkedList();
+        c.insertLast(1);
+        c.insertLast(2);
+        c.insertLast(3);
+        c.insertLast(4);
+        c.insertLast(5);
 
         //System.out.println(a.insertAfter(2, 20));
         //b.displayForward();
         //b.displayBackward();
-        c.remove();
+        System.out.println(c.containsrec(7));
         c.displayForward();
     }
 }
