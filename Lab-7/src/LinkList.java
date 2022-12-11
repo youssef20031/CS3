@@ -118,5 +118,34 @@ class LinkList {
 
 	}
 
-	
+	public int specialDiff(int n){
+		Link current = head;
+		int i = 0;
+		int sum1 = 0;
+		int sum2 = 0;
+		while (current != null){
+			if(i < n){
+				sum1 += (int) current.data;
+			}else if (i>n){
+				sum2 += (int) current.data;
+			}
+			current = current.next;
+			i++;
+		}
+		return sum2 - sum1;
+	}
+
+	   public void orderdinsert(int value){
+		Link current = head;
+			if (head == null){
+				Link l = new Link(value);
+				head = l;
+			}
+			else {
+				while (current != null){
+					
+				}
+			}
+	   }
+
 }
