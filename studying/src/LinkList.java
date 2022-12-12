@@ -1,4 +1,4 @@
-class Link {
+/*class Link {
 	public Object data;
 	public Link next;
 
@@ -10,7 +10,7 @@ class Link {
 	public String toString() {
 		return data.toString();
 	}
-}
+}*/
 
 class LinkList {
 	private Link head;
