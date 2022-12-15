@@ -95,6 +95,92 @@ class LinkList {
 		}
 
 	}
+	public LinkList MulTillENd(){
+		LinkList a = new LinkList();
+		Link current1 = head;
+		Link current2 = head;
+		int Num = 1;
+		while (current2 != null){
+			while (current1 != null){
+				Num *= (int)current1.data;
+				current1 = current1.next;
+			}
+			Link info = new Link(Num);
+			if (a.head == null) {
+				a.head = info;
+			}else {
+				Link current3 = a.head;
+				while (current3.next != null){
+						current3 = current3.next;
+				}
+				current3.next = info;
+			}
 
+			Num = 1;
+			current2 = current2.next;
+			current1 = current2;
+		}
+		return a;
+	}
+	public boolean subsetDifference(int n){
+		Link current = head;
+		Link previous = head;
+		while (current.next != null){
+			current = current.next;
+			if ((int)current.data - (int) previous.data == n){
+				return true;
+			}
+			previous = current;
+		}
+		return false;
+	}
+	public LinkList deleteEvenPosition(){
+		int i = 1;
+		LinkList a = new LinkList();
+		head = head.next;
+		Link current = head;
+		Link previous = head;
+		while (current.next != null){
+			current = current.next;
+			if (i%2 == 1){
+				previous.next = current.next;
+			}
+			i++;
+			previous = current;
+		}
+		a.head = head;
+		return a;
+	}
+	public LinkList extractNonDuplicates(){
+		LinkList a = new LinkList();
+		Link current = head;
+		boolean check = false;
+		while (current != null){
+			Link current2 = a.head;
+			while (current2 != null){
+				if (current2.data.equals(current.data)){
+					check = true;
+				}
+				current2 = current2.next;
+			}
+			if (!check){
+				Link b = new Link(current.data);
+				if (a.head == null){
+					a.head = b;
+				}
+				else {
+					Link current3 = a.head;
+					while (current3.next != null){
+						current3 = current3.next;
+					}
+					current3.next = b;
+				}
+			}
+			current = current.next;
+			check = false;
+		}
+		return a;
+	}
+	
 	
 }
