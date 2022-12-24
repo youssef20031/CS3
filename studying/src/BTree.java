@@ -369,4 +369,22 @@ class BTree {
 			printrangeh(node.right, a, b);
 		}
 	}
+	public String leftRightPath(){
+		return leftRightPathH(root, "", false);
+	}
+
+	private String leftRightPathH(Node node, String s, boolean b) {
+		if(node == null){
+			return s;
+		}else {
+			if (!b) {
+				s = s + " " + (int) node.data;
+				return leftRightPathH(node.left,s,true);
+			}
+			else {
+				s = s + " " + (int) node.data;
+				return leftRightPathH(node.right,s,false);
+			}
+		}
+	}
 }
