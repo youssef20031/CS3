@@ -387,4 +387,65 @@ class BTree {
 			}
 		}
 	}
+	public int alternativeplusminus(){
+		return alternativeplusminush(root, 0, false);
+	}
+
+	private int alternativeplusminush(Node node, int count, boolean b) {
+		if (node == null){
+			return count;
+		}
+		else {
+			if (!b){
+				return count + alternativeplusminush(node.left,count,true) + alternativeplusminush(node.right,count,true);
+			}
+			else {
+				return count - alternativeplusminush(node.left,count,false) - alternativeplusminush(node.right,count,false);
+			}
+		}
+	}
+	public void rotate(){
+		rotateh(root);
+	}
+
+	private void rotateh(Node node) {
+		if (node == null || node.left == null && node.right == null){
+			return;
+		}
+		else{
+			Node t = new Node(node.data);
+			node.data = node.right.data;
+			node.right.data = node.left.data;
+			node.left.data = t.data;
+			rotateh(node.left);
+			rotateh(node.right);
+		}
+	}
+	public void multiplybylevel(){
+		multiplybylevelh(root, 0);
+	}
+
+	private void multiplybylevelh(Node node, int i) {
+		if (node == null){
+			return;
+		}
+		else {
+			int t = (int)node.data * i;
+			node.data = t;
+			multiplybylevelh(node.left,++i);
+			multiplybylevelh(node.right,++i);
+		}
+	}
+	 public int weirdSummation(){
+		return weirdSummationh(root , 0);
+	 }
+
+	private int weirdSummationh(Node node, int i) {
+		if(node == null){
+			return 0;
+		}
+		else{
+			return ((int)Math.pow((int) node.data, i)) + weirdSummationh(node.left, i+1) + weirdSummationh(node.right, i+1);
+		}
+	}
 }
